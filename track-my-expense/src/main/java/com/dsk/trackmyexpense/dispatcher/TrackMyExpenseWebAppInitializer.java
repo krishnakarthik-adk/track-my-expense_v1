@@ -8,7 +8,7 @@ import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import org.springframework.web.servlet.DispatcherServlet;
 
-import com.dsk.trackmyexpense.config.AppConfig;
+import com.dsk.trackmyexpense.config.ThymeleafConfig;
 
 /**
  * 
@@ -18,13 +18,13 @@ import com.dsk.trackmyexpense.config.AppConfig;
 public class TrackMyExpenseWebAppInitializer implements WebApplicationInitializer {
 
 	@Override
-	public void onStartup(ServletContext container) throws ServletException {
+	public void onStartup(ServletContext servletContext) throws ServletException {
 		AnnotationConfigWebApplicationContext appContext = new AnnotationConfigWebApplicationContext();
 		appContext.scan("com.dsk.trackmyexpense");
-		appContext.register(AppConfig.class);
-		appContext.setServletContext(container);
-
-		ServletRegistration.Dynamic dispatcher = container.addServlet("dispatcher", new DispatcherServlet(appContext));
+		appContext.register(ThymeleafConfig.class);
+		appContext.setServletContext(servletContext);
+		// Spring MVC front controller
+		ServletRegistration.Dynamic dispatcher = servletContext.addServlet("dispatcher", new DispatcherServlet(appContext));
 		dispatcher.setLoadOnStartup(1);
 		dispatcher.addMapping("/");
 	}
