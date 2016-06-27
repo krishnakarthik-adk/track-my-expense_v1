@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 	<head>
-		<title>Thymeleaf 3 + Spring 4 example</title>
+		<title>Thymeleaf 4 + Spring 4 example</title>
         <meta charset="utf-8" />
 	</head>
 	<body>
-        <h1>Thymeleaf 3 + Spring 4 example</h1>
+        <h1>Thymeleaf 4 + Spring 4 example</h1>
         <p>
             Hello <span th:text="${recipient}">Peter</span>!!!
         </p>
+        <h1 th:text="#{hello.header}"></h1>
+        <h1 th:text="#{greeting.header}"></h1>
 	</body>
 </html>
