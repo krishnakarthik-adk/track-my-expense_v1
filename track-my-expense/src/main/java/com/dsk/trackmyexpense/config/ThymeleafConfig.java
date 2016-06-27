@@ -2,8 +2,10 @@ package com.dsk.trackmyexpense.config;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
+import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
@@ -40,20 +42,28 @@ public class ThymeleafConfig extends WebMvcConfigurerAdapter implements Applicat
         resolver.setCharacterEncoding(UTF8);
         return resolver;
     }
-
-    private TemplateEngine templateEngine() {
+    @Bean
+    public TemplateEngine templateEngine() {
         SpringTemplateEngine engine = new SpringTemplateEngine();
         engine.setTemplateResolver(templateResolver());
         return engine;
     }
-
-    private ITemplateResolver templateResolver() {
+    @Bean
+    public ITemplateResolver templateResolver() {
         SpringResourceTemplateResolver resolver = new SpringResourceTemplateResolver();
         resolver.setApplicationContext(applicationContext);
         resolver.setPrefix("/WEB-INF/templates/");
         resolver.setTemplateMode(TemplateMode.HTML);
         return resolver;
     }
-
+    
+    @Bean (name = "messageSource")
+    public MessageSource messageSource()
+    {
+    	ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
+    	messageSource.setBasename("classpath:/locale/messages");
+    	messageSource.setDefaultEncoding(UTF8);
+    	return messageSource;
+    }
 	
 }
