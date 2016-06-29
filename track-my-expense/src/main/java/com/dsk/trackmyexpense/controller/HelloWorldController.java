@@ -32,6 +32,6 @@ public class HelloWorldController {
 	@RequestMapping(value = "/thymeleaf", method = RequestMethod.GET)
     public String index(Model model) {
         model.addAttribute("recipient", "World");
-        return "index.html";
+        return "index";
     }
 }
