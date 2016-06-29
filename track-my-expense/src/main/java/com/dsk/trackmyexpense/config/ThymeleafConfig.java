@@ -8,6 +8,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.spring4.SpringTemplateEngine;
@@ -53,6 +54,7 @@ public class ThymeleafConfig extends WebMvcConfigurerAdapter implements Applicat
         SpringResourceTemplateResolver resolver = new SpringResourceTemplateResolver();
         resolver.setApplicationContext(applicationContext);
         resolver.setPrefix("/WEB-INF/templates/");
+        resolver.setSuffix(".html");
         resolver.setTemplateMode(TemplateMode.HTML);
         return resolver;
     }
@@ -64,6 +66,14 @@ public class ThymeleafConfig extends WebMvcConfigurerAdapter implements Applicat
     	messageSource.setBasename("classpath:/locale/messages");
     	messageSource.setDefaultEncoding(UTF8);
     	return messageSource;
+    }
+    
+    /**
+     * Stores registrations of resource handlers for serving static resources such as images, css files and others through Spring MVC
+     */
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
     }
 	
 }
