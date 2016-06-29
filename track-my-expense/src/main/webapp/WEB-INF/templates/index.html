@@ -3,13 +3,16 @@
 	<head>
 		<title>Thymeleaf 4 + Spring 4 example</title>
         <meta charset="utf-8" />
+        <link rel="stylesheet" type="text/css" href="../../resources/css/simple.css" th:href="@{/resources/css/simple.css}" />
 	</head>
 	<body>
         <h1>Thymeleaf 4 + Spring 4 example</h1>
         <p>
-            Hello <span th:text="${recipient}">Peter</span>!!!
+            Hello <span th:text="${recipient}">KK</span>!!!
         </p>
         <h1 th:text="#{hello.header}"></h1>
         <h1 th:text="#{greeting.header}"></h1>
+        
+        <div th:include="static/footer :: copy"></div>
 	</body>
 </html>
