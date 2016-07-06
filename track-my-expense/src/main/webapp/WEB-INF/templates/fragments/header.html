@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+	<head th:fragment="header">
+		<!-- The below 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    	<meta charset="utf-8">
+    	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    	<meta http-equiv="x-ua-compatible" content="ie=edge">
+    	
+		<!-- Bootstrap CSS -->
+		<link href="../../../resources/css/bootstrap.min.css" th:href="@{/resources/css/bootstrap.min.css}" rel="stylesheet" />
+		<link href="../../../resources/css/footer.css" th:href="@{/resources/css/footer.css}" rel="stylesheet" />
+
+		<!-- jQuery first, then Bootstrap JS. -->
+	    <script src="../../../resources/js/jquery-2.2.4.min.js" th:src="@{/resources/js/jquery-2.2.4.min.js}"></script>
+	    <script src="../../../resources/js/bootstrap.min.js" th:src="@{/resources/js/bootstrap.min.js}"></script>
+	</head>
+	<div th:fragment="menu">
+		<!-- Menu Starts -->
+		<nav class="navbar navbar-inverse"> <!-- *navbar-default* for default -->
+			<div class="container-fluid">
+				<!-- Don't remove the below div - Essential for responsiveness -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed"
+						data-toggle="collapse" data-target="#menu-navbar" aria-expanded="false"
+						aria-controls="navbar">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span> 
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="#"><span th:text="#{application.name}"></span></a>
+				</div>
+				<!-- Actual Menu -->
+				<div id="menu-navbar" class="collapse navbar-collapse">
+					<ul class="nav navbar-nav">
+						<li class="active"><a href="#"><span th:text="#{application.home}"></span></a></li>
+						<li><a href="#about"><span th:text="#{application.about}"></span></a></li>
+						<li><a href="#contact"><span th:text="#{application.contact}"></span></a></li>
+					</ul>
+				</div>
+			</div>
+		</nav><!-- Menu Ends -->
+	</div>
+</html>
