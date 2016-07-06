@@ -1,18 +1,48 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-	<head>
-		<title>Thymeleaf 4 + Spring 4 example</title>
-        <meta charset="utf-8" />
-        <link rel="stylesheet" type="text/css" href="../../resources/css/simple.css" th:href="@{/resources/css/simple.css}" />
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+	<head th:include="fragments/header :: header">
+		<title>Track My Xpense</title>
 	</head>
 	<body>
-        <h1>Thymeleaf 4 + Spring 4 example</h1>
-        <p>
-            Hello <span th:text="${recipient}">KK</span>!!!
-        </p>
-        <h1 th:text="#{hello.header}"></h1>
-        <h1 th:text="#{greeting.header}"></h1>
-        
-        <div th:include="static/footer :: copy"></div>
+		<!-- Top Nav Bar + Menu -->
+		<div th:replace="fragments/header :: menu"></div>
+			<h1>Thymeleaf 4 + Spring 4 example</h1>
+	
+		<!-- <h1 th:text="#{hello.header}"></h1> -->
+		
+		<!-- Main Content -->
+		<!-- <div class="container-fluid">
+			<div class="row">
+				<div class="col-xs-4 col-sm-3 col-lg-3"><h4><small>Description</small></h4></div>
+				<div class="col-xs-3 col-sm-3 col-lg-3"><h4><small>Amt</small></h4></div>
+				<div class="col-xs-3 col-sm-3 col-lg-3"><h4><small>Mode</small></h4></div>
+				<div class="col-xs-2 col-sm-3 col-lg-3"><h4><small>Comment</small></h4></div>
+			</div>
+		</div> -->
+		
+		<!-- Test -->
+		<div class="table-responsive">
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>Description</th>
+						<th>Amount</th>
+						<th>Mode</th>
+						<th>Comment</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>Hi</td>
+						<td>Hi</td>
+						<td>Hi</td>
+						<td>Hi</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<!-- Footer -->
+		<div th:replace="fragments/footer :: footer"></div>
 	</body>
 </html>
