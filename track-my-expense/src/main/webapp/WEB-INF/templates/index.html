@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:th="http://www.thymeleaf.org">
-	<head th:include="fragments/header :: header">
+	<head th:replace="fragments/header :: header">
 		<title>Track My Xpense</title>
 	</head>
 	<body>
@@ -9,39 +9,32 @@
 		<div th:replace="fragments/header :: menu"></div>
 			<h1>Thymeleaf 4 + Spring 4 example</h1>
 	
-		<!-- <h1 th:text="#{hello.header}"></h1> -->
-		
-		<!-- Main Content -->
-		<!-- <div class="container-fluid">
-			<div class="row">
-				<div class="col-xs-4 col-sm-3 col-lg-3"><h4><small>Description</small></h4></div>
-				<div class="col-xs-3 col-sm-3 col-lg-3"><h4><small>Amt</small></h4></div>
-				<div class="col-xs-3 col-sm-3 col-lg-3"><h4><small>Mode</small></h4></div>
-				<div class="col-xs-2 col-sm-3 col-lg-3"><h4><small>Comment</small></h4></div>
+		<form action="#" th:action="@{/thymeleaf}" th:object="${trackmyexpense}" method="post">
+			<!-- Targeted screens: small, medium, large and extra large -->
+			<div class="container">		
+				<div class="table-responsive">
+					<table class="table table-striped">
+						<thead>
+							<tr>
+								<th class="text-center"><h4><span th:text="#{item.name}"></span></h4></th>
+								<th class="text-center"><h4><span th:text="#{item.price}"></span></h4></th>
+								<th class="text-center"><h4><span th:text="#{item.payment}"></span></h4></th>
+								<th class="text-center"><h4><span th:text="#{item.comments}"></span></h4></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><input type="text" class="form-control" th:field="*{itemName}"  placeholder="Item Name"></td>
+								<td><input type="text" class="form-control" th:field="*{price}" placeholder="Price"></td>
+								<td><input type="text" class="form-control" th:field="*{payment}" placeholder="Payment"></td>
+								<td><input type="text" class="form-control" th:field="*{comments}" placeholder="Comments"></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<button type="submit" class="btn btn-lg btn-success"><span th:text="#{expense.submit}"></span></button>
 			</div>
-		</div> -->
-		
-		<!-- Test -->
-		<div class="table-responsive">
-			<table class="table table-striped">
-				<thead>
-					<tr>
-						<th>Description</th>
-						<th>Amount</th>
-						<th>Mode</th>
-						<th>Comment</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>Hi</td>
-						<td>Hi</td>
-						<td>Hi</td>
-						<td>Hi</td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
+		</form>
 		<!-- Footer -->
 		<div th:replace="fragments/footer :: footer"></div>
 	</body>
