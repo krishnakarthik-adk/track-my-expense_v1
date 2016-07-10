@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+	<head th:replace="fragments/header :: header">
+		<title>Track My Xpense</title>
+	</head>
+	<body>
+		<!-- Top Nav Bar + Menu -->
+		<div th:replace="fragments/header :: menu"></div>
+			<h1>Thymeleaf 4 + Spring 4 example</h1>
+			
+			<!-- Targeted screens: small, medium, large and extra large -->
+			<div class="container">		
+				<div class="table-responsive">
+					<table class="table table-striped">
+						<thead>
+							<tr>
+								<th><h4><span th:text="#{item.name}"></span></h4></th>
+								<th><h4><span th:text="#{item.price}"></span></h4></th>
+								<th><h4><span th:text="#{item.payment}"></span></h4></th>
+								<th><h4><span th:text="#{item.comments}"></span></h4></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td><span th:text="${trackmyexpense.itemName}"></span></td>
+								<td><span th:text="${trackmyexpense.price}"></span></td>
+								<td><span th:text="${trackmyexpense.payment}"></span></td>
+								<td><span th:text="${trackmyexpense.comments}"></span></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+	</body>
+	<!-- Footer -->
+	<div th:replace="fragments/footer :: footer"></div>
+</html>
