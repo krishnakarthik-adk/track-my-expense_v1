@@ -1,14 +1,17 @@
 package com.dsk.trackmyexpense.model;
+
 /**
  * 
  * @author Krishna
  *
  */
+
 public class TrackMyExpense {
+	
 	private String itemName;
 	private String price;
 	private String payment;
-	private String comments;
+	private String description;
 	
 	public String getItemName() {
 		return itemName;
@@ -28,11 +31,11 @@ public class TrackMyExpense {
 	public void setPayment(String payment) {
 		this.payment = payment;
 	}
-	public String getComments() {
-		return comments;
+	public String getDescription() {
+		return description;
 	}
-	public void setComments(String comments) {
-		this.comments = comments;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 	
 }
