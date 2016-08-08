@@ -19,7 +19,7 @@
 								<th class="text-center"><h4><span th:text="#{item.name}"></span></h4></th>
 								<th class="text-center"><h4><span th:text="#{item.price}"></span></h4></th>
 								<th class="text-center"><h4><span th:text="#{item.payment}"></span></h4></th>
-								<th class="text-center"><h4><span th:text="#{item.comments}"></span></h4></th>
+								<th class="text-center"><h4><span th:text="#{item.description}"></span></h4></th>
 							</tr>
 						</thead>
 						<tbody>
@@ -27,7 +27,7 @@
 								<td><input type="text" class="form-control" th:field="*{itemName}"  placeholder="Item Name"></td>
 								<td><input type="text" class="form-control" th:field="*{price}" placeholder="Price"></td>
 								<td><input type="text" class="form-control" th:field="*{payment}" placeholder="Payment"></td>
-								<td><input type="text" class="form-control" th:field="*{comments}" placeholder="Comments"></td>
+								<td><input type="text" class="form-control" th:field="*{description}" placeholder="Description"></td>
 							</tr>
 						</tbody>
 					</table>
