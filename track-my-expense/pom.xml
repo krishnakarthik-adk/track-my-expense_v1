@@ -31,13 +31,6 @@
       <version>${servlet-api-version}</version>
 	</dependency>
 	
-	<!-- JSTL -->
-	<dependency>
-	    <groupId>javax.servlet.jsp.jstl</groupId>
-	    <artifactId>javax.servlet.jsp.jstl-api</artifactId>
-	    <version>1.2.1</version>
-	</dependency>
-	
     <!-- Core utilities used by other modules. Define this if you use Spring Utility APIs (org.springframework.core.*/org.springframework.util.*) -->
 	<dependency>
 	  <groupId>org.springframework</groupId>
@@ -69,6 +62,20 @@
     	<artifactId>spring-data-jpa</artifactId>
     	<version>${spring-data-jpa-version}</version>
 	</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/org.eclipse.persistence/eclipselink -->
+	<dependency>
+	    <groupId>org.eclipse.persistence</groupId>
+	    <artifactId>eclipselink</artifactId>
+	    <version>2.6.3</version>
+	</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/ojdbc/ojdbc -->
+	<!-- <dependency>
+		<groupId>ojdbc</groupId>
+		<artifactId>ojdbc</artifactId>
+		<version>14</version>
+	</dependency> -->
 	
 	<!-- To get Thymeleaf 3 (core): -->
 	<dependency>
