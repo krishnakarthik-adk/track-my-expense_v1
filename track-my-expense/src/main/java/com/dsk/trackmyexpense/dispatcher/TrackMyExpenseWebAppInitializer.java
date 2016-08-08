@@ -8,6 +8,7 @@ import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import org.springframework.web.servlet.DispatcherServlet;
 
+import com.dsk.trackmyexpense.config.PersistenceConfig;
 import com.dsk.trackmyexpense.config.ThymeleafConfig;
 
 /**
@@ -22,6 +23,7 @@ public class TrackMyExpenseWebAppInitializer implements WebApplicationInitialize
 		AnnotationConfigWebApplicationContext appContext = new AnnotationConfigWebApplicationContext();
 		appContext.scan("com.dsk.trackmyexpense");
 		appContext.register(ThymeleafConfig.class);
+		appContext.register(PersistenceConfig.class);
 		appContext.setServletContext(servletContext);
 		// Spring MVC front controller
 		ServletRegistration.Dynamic dispatcher = servletContext.addServlet("dispatcher", new DispatcherServlet(appContext));
