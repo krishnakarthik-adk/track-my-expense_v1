@@ -25,6 +25,9 @@ public class HelloWorldController {
 	@RequestMapping(value = "/thymeleaf", method = RequestMethod.GET)
     public String index(Model model) {
         model.addAttribute("trackmyexpense", new TrackMyExpense());
+        model.addAttribute("allCategories", new TrackMyExpense().getListOfCategories());
+        model.addAttribute("paymentOptions", new TrackMyExpense().getPaymentOptions());
+        
         return "index";
     }
 	
