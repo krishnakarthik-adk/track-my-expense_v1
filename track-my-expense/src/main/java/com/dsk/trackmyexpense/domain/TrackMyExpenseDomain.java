@@ -1,5 +1,7 @@
 package com.dsk.trackmyexpense.domain;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -7,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  * 
@@ -34,6 +38,13 @@ public class TrackMyExpenseDomain {
 	
 	@Column(name="DESCRIPTION")
 	private String description;
+	
+	@Column(name="ITEM_CATEGORY", nullable=false)
+	private String itemCategory;
+	
+	@Column(name="ENTRY_DATE")
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date expenseEntryDate;
 	
 	// The default constructor only exists for the sake of JPA
 	public TrackMyExpenseDomain() {}
@@ -67,6 +78,22 @@ public class TrackMyExpenseDomain {
 	}
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public String getItemCategory() {
+		return itemCategory;
+	}
+
+	public void setItemCategory(String itemCategory) {
+		this.itemCategory = itemCategory;
+	}
+
+	public Date getExpenseEntryDate() {
+		return expenseEntryDate;
+	}
+
+	public void setExpenseEntryDate(Date expenseEntryDate) {
+		this.expenseEntryDate = expenseEntryDate;
 	}
 	
 	
