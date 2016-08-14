@@ -82,7 +82,7 @@ public class PersistenceConfig {
 	
 	Properties additionalProperties() {
 	      Properties properties = new Properties();
-	      properties.setProperty("eclipselink.ddl-generation", "create-tables");
+	      properties.setProperty("eclipselink.ddl-generation", "create-or-extend-tables");
 	      properties.setProperty("eclipselink.weaving", "false");
 	      // DDL will be generated and written to the database only.
 	      properties.setProperty("eclipselink.ddl-generation.output-mode", "database");
