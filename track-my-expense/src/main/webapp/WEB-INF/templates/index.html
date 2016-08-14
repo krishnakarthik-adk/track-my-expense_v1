@@ -8,6 +8,7 @@
 		<!-- Top Nav Bar + Menu -->
 		<div th:replace="fragments/header :: menu"></div>
 			<h1>Thymeleaf 4 + Spring 4 example</h1>
+			<h1>Enter your Expenses</h1>
 	
 		<form action="#" th:action="@{/thymeleaf}" th:object="${trackmyexpense}" method="post">
 			<!-- Targeted screens: small, medium, large and extra large -->
@@ -20,22 +21,47 @@
 								<th class="text-center"><h4><span th:text="#{item.price}"></span></h4></th>
 								<th class="text-center"><h4><span th:text="#{item.payment}"></span></h4></th>
 								<th class="text-center"><h4><span th:text="#{item.description}"></span></h4></th>
+								<th class="text-center"><h4><span th:text="#{item.category}"></span></h4></th>
 							</tr>
 						</thead>
 						<tbody>
 							<tr>
 								<td><input type="text" class="form-control" th:field="*{itemName}"  placeholder="Item Name"></td>
 								<td><input type="text" class="form-control" th:field="*{price}" placeholder="Price"></td>
-								<td><input type="text" class="form-control" th:field="*{payment}" placeholder="Payment"></td>
+								<td>
+									<select class="form-control" th:field="*{payment}">
+									  <option th:each="payment : ${paymentOptions}" 
+									          th:value="${payment}" 
+									          th:text="#{${'paymentOption.' + payment}}">Category</option>
+									</select>
+								</td>
 								<td><input type="text" class="form-control" th:field="*{description}" placeholder="Description"></td>
+								<td>
+									<select class="form-control" th:field="*{category}">
+									  <option th:each="category : ${allCategories}" 
+									          th:value="${category}" 
+									          th:text="#{${'itemCategory.' + category}}">Category</option>
+									</select>
+									
+									<!-- To try -->
+									<!-- <select th:field="*{category}">
+									  <option th:each="category : ${trackmyexpense.getListOfCategories()}" 
+									          th:value="${category}" 
+									          th:text="${category}">Category</option>
+									</select> -->
+								</td>
 							</tr>
 						</tbody>
 					</table>
+					
 				</div>
 				<button type="submit" class="btn btn-lg btn-success"><span th:text="#{expense.submit}"></span></button>
 			</div>
 		</form>
 		<!-- Footer -->
 		<div th:replace="fragments/footer :: footer"></div>
+		
+		<!-- Boot Strap Date picker Code -->
+		
 	</body>
 </html>
