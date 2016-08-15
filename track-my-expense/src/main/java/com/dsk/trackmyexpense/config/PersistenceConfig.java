@@ -89,8 +89,6 @@ public class PersistenceConfig {
 	      properties.setProperty("eclipselink.logging.level", "FINE");
 	      properties.setProperty("eclipselink.logging.file", "C:\\apps\\apache-tomcat-8.0.32\\logs\\eclipse-link.log");
 	      
-	      //properties.setProperty("hibernate.hbm2ddl.auto", "create-drop");
-	      //properties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL5Dialect");
 	      return properties;
 	   }
 	
