@@ -4,6 +4,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.web.servlet.ViewResolver;
@@ -23,6 +24,7 @@ import org.thymeleaf.templateresolver.ITemplateResolver;
  * This class provides configuration for using Thymeleaf 3.0.0.RELEASE with spring MVC 4.3.0.RELEASE
  */
 @Configuration
+@ComponentScan(basePackages = {"com.dsk.trackmyexpense"})
 @EnableWebMvc
 public class ThymeleafConfig extends WebMvcConfigurerAdapter implements ApplicationContextAware {
 	
@@ -75,5 +77,5 @@ public class ThymeleafConfig extends WebMvcConfigurerAdapter implements Applicat
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
     }
-	
+    
 }
