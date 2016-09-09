@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.dsk.trackmyexpense.model.TrackMyExpense;
 import com.dsk.trackmyexpense.service.ITrackMyExpenseService;
+import com.dsk.trackmyexpense.utils.TrackMyExpenseUtils;
 
 /**
  * 
@@ -29,15 +30,13 @@ public class HelloWorldController {
 	@ModelAttribute("itemCategories")
 	public List<String> populateItemCategories()
 	{
-		System.out.println("In populateItemCategories()");
-		return new TrackMyExpense().getListOfCategories();
+		return TrackMyExpenseUtils.populateItemCategories();
 	}
 	
 	@ModelAttribute("paymentOptions")
 	public List<String> populatePaymentOptions()
 	{
-		System.out.println("In populatePaymentOptions()");
-		return new TrackMyExpense().getPaymentOptions();
+		return TrackMyExpenseUtils.populatePaymentOptions();
 	}
 	
 	@RequestMapping(value = "/thymeleaf", method = RequestMethod.GET)
