@@ -1,5 +1,6 @@
 package com.dsk.trackmyexpense.domain;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -30,8 +31,8 @@ public class TrackMyExpenseDomain {
 	@Column(name="ITEM_NAME", nullable=false)
 	private String itemName;
 	
-	@Column(name="PRICE", nullable=false)
-	private String price;
+	@Column(name="PRICE", precision=19, scale=2, nullable=false)
+	private BigDecimal price;
 	
 	@Column(name="PAYMENT_MODE", nullable=false)
 	private String payment;
@@ -42,9 +43,13 @@ public class TrackMyExpenseDomain {
 	@Column(name="ITEM_CATEGORY", nullable=false)
 	private String itemCategory;
 	
-	@Column(name="ENTRY_DATE")
+	@Column(name="ENTRY_DATE", nullable=false)
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date expenseEntryDate;
+	
+	@Column(name="EXPENSE_DATE")
+	@Temporal(TemporalType.DATE)
+	private Date expenseDate;
 	
 	// The default constructor only exists for the sake of JPA
 	public TrackMyExpenseDomain() {}
@@ -61,10 +66,10 @@ public class TrackMyExpenseDomain {
 	public void setItemName(String itemName) {
 		this.itemName = itemName;
 	}
-	public String getPrice() {
+	public BigDecimal getPrice() {
 		return price;
 	}
-	public void setPrice(String price) {
+	public void setPrice(BigDecimal price) {
 		this.price = price;
 	}
 	public String getPayment() {
@@ -94,6 +99,14 @@ public class TrackMyExpenseDomain {
 
 	public void setExpenseEntryDate(Date expenseEntryDate) {
 		this.expenseEntryDate = expenseEntryDate;
+	}
+
+	public Date getExpenseDate() {
+		return expenseDate;
+	}
+
+	public void setExpenseDate(Date expenseDate) {
+		this.expenseDate = expenseDate;
 	}
 	
 	
