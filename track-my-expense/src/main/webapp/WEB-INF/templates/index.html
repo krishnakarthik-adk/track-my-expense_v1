@@ -5,14 +5,33 @@
 		<title>Track My Xpense</title>
 	</head>
 	<body>
+		<script type="text/javascript">
+			// Defaults for all options can be modified directly by changing values in the $.fn.datepicker.defaults hash:
+			$.fn.datepicker.defaults.format = "mm/dd/yyyy";
+			$.fn.datepicker.defaults.autoclose = true;
+			$.fn.datepicker.defaults.todayBtn = true;
+			$.fn.datepicker.defaults.todayHighlight = true;
+			// bootstrap Date picker instantiation
+			$('.datepicker').datepicker();
+		</script>
 		<!-- Top Nav Bar + Menu -->
 		<div th:replace="fragments/header :: menu"></div>
-			<h1>Thymeleaf 4 + Spring 4 example</h1>
-			<h1>Enter your Expenses</h1>
+			<!-- <h1>Thymeleaf 4 + Spring 4 example</h1> -->
 	
 		<form action="#" th:action="@{/thymeleaf}" th:object="${trackmyexpense}" method="post">
 			<!-- Targeted screens: small, medium, large and extra large -->
-			<div class="container">		
+			<div class="container">	
+				<h1>Enter your Expenses</h1>	
+				<!-- Date -->
+				<h4><span th:text="#{item.expenseDate}"></span></h4>
+				<!-- <input type="text" class="form-control" th:field="${#dates.create(year,month,day)}"  placeholder="Expense Date"> -->
+				<div class="input-group date" data-provide="datepicker">
+				    <input type="text" class="form-control" th:field="*{expenseDate}"  placeholder="Expense Date">
+				    <div class="input-group-addon">
+				        <span class="glyphicon glyphicon-th"></span>
+				    </div>
+				</div>
+
 				<div class="table-responsive">
 					<table class="table table-striped">
 						<thead>
@@ -32,7 +51,7 @@
 									<select class="form-control" th:field="*{payment}">
 									  <option th:each="payment : ${paymentOptions}" 
 									          th:value="${payment}" 
-									          th:text="#{${'paymentOption.' + payment}}">Category</option>
+									          th:text="#{${'paymentOption.' + payment}}">Payment</option>
 									</select>
 								</td>
 								<td><input type="text" class="form-control" th:field="*{description}" placeholder="Description"></td>
@@ -42,14 +61,7 @@
 									          th:value="${category}" 
 									          th:text="#{${'itemCategory.' + category}}">Category</option>
 									</select>
-									
-									<!-- To try -->
-									<!-- <select th:field="*{category}">
-									  <option th:each="category : ${trackmyexpense.getListOfCategories()}" 
-									          th:value="${category}" 
-									          th:text="${category}">Category</option>
-									</select> -->
-								</td>
+									</td>
 							</tr>
 						</tbody>
 					</table>
