@@ -29,15 +29,16 @@ public class TrackMyExpenseServiceImpl implements ITrackMyExpenseService{
 		expenseDomain.setPayment(expense.getPayment());
 		expenseDomain.setPrice(expense.getPrice());
 		expenseDomain.setDescription(expense.getDescription());
-		
-		System.out.println("expense.getCategory() " + expense.getCategory());
 		expenseDomain.setItemCategory(expense.getCategory());
 		
+		// Save the expense entry with the current time stamp
 		LocalDateTime dateTime = LocalDateTime.now();
-		//String tt = dateTime.format(DateTimeFormatter.ofPattern("yyyy-mm-dd hh:mm:ss"));
 		Timestamp ts = Timestamp.valueOf(dateTime);
 		
 		expenseDomain.setExpenseEntryDate(ts);
+		
+		
+		expenseDomain.setExpenseDate(expense.getExpenseDate());
 		
 		expenseRepo.save(expenseDomain);
 	}
