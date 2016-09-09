@@ -28,6 +28,7 @@ public class TrackMyExpenseConstants {
 	public static final String MISCELLANEOUS = "Miscellaneous";
 	
 	public static final String CASH = "Cash";
+	public static final String DEBIT_CARD = "DebitCard";
 	public static final String ONLINE_TRANSFER = "OnlineTransfer";
 	public static final String NET_BANKING = "NetBanking";
 	public static final String CREDIT_CARD = "CreditCard";
