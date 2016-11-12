@@ -24,6 +24,7 @@ import org.thymeleaf.templateresolver.ITemplateResolver;
  * This class provides configuration for using Thymeleaf 3.0.0.RELEASE with spring MVC 4.3.0.RELEASE
  */
 @Configuration
+//@PropertySource("classpath:/logger/log4j2.xml") // Load the database properties file
 @ComponentScan(basePackages = {"com.dsk.trackmyexpense"})
 @EnableWebMvc
 public class ThymeleafConfig extends WebMvcConfigurerAdapter implements ApplicationContextAware {
