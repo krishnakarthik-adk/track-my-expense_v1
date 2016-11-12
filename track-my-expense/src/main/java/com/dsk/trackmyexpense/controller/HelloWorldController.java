@@ -2,6 +2,8 @@ package com.dsk.trackmyexpense.controller;
 
 import java.util.List;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,6 +26,8 @@ import com.dsk.trackmyexpense.utils.TrackMyExpenseUtils;
 @RequestMapping("/")
 public class HelloWorldController {
 
+	private static final Logger LOGGER = LogManager.getLogger(HelloWorldController.class);
+	
 	@Autowired(required=true)
 	private ITrackMyExpenseService expenseService;
 	
@@ -42,13 +46,15 @@ public class HelloWorldController {
 	@RequestMapping(value = "/thymeleaf", method = RequestMethod.GET)
     public String index(Model model) {
         model.addAttribute("trackmyexpense", new TrackMyExpense());
-        
+        LOGGER.info("Action received: /thymeleaf, displaying home page");
         return "index";
     }
 	
 	@RequestMapping(value="/thymeleaf", method=RequestMethod.POST)
 	public String submitExpense(@ModelAttribute TrackMyExpense trackMyExpense, Model model)
 	{
+		LOGGER.info("Action received: /thymeleaf, submitExpense()");
+		
 		model.addAttribute("trackmyexpense", trackMyExpense);
 		
 		expenseService.submitExpenses(trackMyExpense);
