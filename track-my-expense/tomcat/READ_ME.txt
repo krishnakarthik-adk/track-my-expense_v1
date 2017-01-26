@@ -1,0 +1,1 @@
+This file has been modified to enable compression at tomcat-level.
