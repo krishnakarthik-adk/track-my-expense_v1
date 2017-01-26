@@ -1,0 +1,1 @@
+This file is supposed to be placed under path-to-tomcat\apache-tomcat-8.0.32\conf folder.

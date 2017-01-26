@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="DEBUG" name="track-my-expense">
+	<Properties>
+		<Property name="baseDir">C:/apps/apache-tomcat-8.0.32/logs</Property>
+		<Property name="archiveBaseDir">${baseDir}/archive</Property>
+		<Property name="pattern"></Property>
+	</Properties>
+	<Appenders>
+		<RollingFile name="RollingFile" filename="${baseDir}/track-my-expense.log" filePattern="${archiveBaseDir}/track-my-expense-%d{yyyy-MM-dd-hh-mm}-%i.log.gz">
+			<PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
+			<SizeBasedTriggeringPolicy size="25 MB" />
+			<TimeBasedTriggeringPolicy />
+		</RollingFile>
+	</Appenders>
+	<Loggers>
+		<Logger name="com.dsk.trackmyexpense.controller" level="TRACE" additivity="false">
+			<AppenderRef ref="RollingFile"/>
+		</Logger>
+		<Logger name="com.dsk.trackmyexpense.service" level="TRACE" additivity="false">
+			<AppenderRef ref="RollingFile"/>
+		</Logger>
+		<Logger name="com.dsk.trackmyexpense.filters" level="TRACE" additivity="false">
+			<AppenderRef ref="RollingFile"/>
+		</Logger>
+		<Root level="error">
+			<AppenderRef ref="RollingFile"/>
+		</Root>
+	</Loggers>
+</Configuration>
